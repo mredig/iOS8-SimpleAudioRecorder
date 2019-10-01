@@ -28,8 +28,12 @@ class AudioRecorderController: UIViewController {
 	lazy private var recorder = AudioRecorder()
 
 	private func updateViews() {
-		let title = player.isPlaying ? "Pause" : "Play"
-		playButton.setTitle(title, for: .normal)
+		let playButtonTitle = player.isPlaying ? "Pause" : "Play"
+		playButton.setTitle(playButtonTitle, for: .normal)
+
+		let recordButtonTitle = recorder.isRecording ? "Stop Recording" : "Record"
+		recordButton.setTitle(recordButtonTitle, for: .normal)
+
 
 		timeLabel.text = timeFormatter.string(from: player.elapsedTime)
 		timeRemainingLabel.text = timeFormatter.string(from: player.timeRemaining)
@@ -48,6 +52,7 @@ class AudioRecorderController: UIViewController {
 		let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
 		player.delegate = self
+		recorder.delegate = self
 	}
 
 
@@ -72,4 +77,16 @@ extension AudioRecorderController: AudioPlayerDelegate {
 		// update views
 		updateViews()
 	}
+}
+
+extension AudioRecorderController: AudioRecorderDelegate {
+	func recorderDidChangeState(_ recorder: AudioRecorder) {
+		updateViews()
+	}
+
+	func recorderDidFinishSavingFile(_ recorder: AudioRecorder) {
+		//
+	}
+
+
 }
