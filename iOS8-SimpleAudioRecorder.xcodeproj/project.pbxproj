@@ -13,6 +13,7 @@
 		331B6F612343B38D0001C520 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 331B6F602343B38D0001C520 /* Assets.xcassets */; };
 		331B6F642343B38D0001C520 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331B6F622343B38D0001C520 /* LaunchScreen.storyboard */; };
 		331B6F6C2343B48A0001C520 /* AudioRecorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B6F6B2343B48A0001C520 /* AudioRecorderController.swift */; };
+		331B6F6E2343B5370001C520 /* piano.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 331B6F6D2343B5360001C520 /* piano.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		331B6F632343B38D0001C520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		331B6F652343B38D0001C520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		331B6F6B2343B48A0001C520 /* AudioRecorderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorderController.swift; sourceTree = "<group>"; };
+		331B6F6D2343B5360001C520 /* piano.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = piano.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				331B6F592343B38C0001C520 /* SceneDelegate.swift */,
 				331B6F5D2343B38C0001C520 /* Main.storyboard */,
 				331B6F602343B38D0001C520 /* Assets.xcassets */,
+				331B6F6D2343B5360001C520 /* piano.mp3 */,
 				331B6F622343B38D0001C520 /* LaunchScreen.storyboard */,
 				331B6F652343B38D0001C520 /* Info.plist */,
 			);
@@ -127,6 +130,7 @@
 			files = (
 				331B6F642343B38D0001C520 /* LaunchScreen.storyboard in Resources */,
 				331B6F612343B38D0001C520 /* Assets.xcassets in Resources */,
+				331B6F6E2343B5370001C520 /* piano.mp3 in Resources */,
 				331B6F5F2343B38C0001C520 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
