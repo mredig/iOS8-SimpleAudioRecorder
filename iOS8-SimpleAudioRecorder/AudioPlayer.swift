@@ -66,7 +66,7 @@ class AudioPlayer: NSObject {
 
 	private func startTimer() {
 		stopTimer()
-		timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: { _ in
+		timer = Timer.scheduledTimer(withTimeInterval: 1/60.0, repeats: true, block: { _ in
 			self.notifyDelegate()
 		})
 	}
