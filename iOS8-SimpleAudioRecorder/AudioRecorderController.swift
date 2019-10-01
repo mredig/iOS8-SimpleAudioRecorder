@@ -24,7 +24,8 @@ class AudioRecorderController: UIViewController {
 		return formatting
 	}()
 
-	let player = AudioPlayer()
+	lazy private var player = AudioPlayer()
+	lazy private var recorder = AudioRecorder()
 
 	private func updateViews() {
 		let title = player.isPlaying ? "Pause" : "Play"
@@ -62,7 +63,7 @@ class AudioRecorderController: UIViewController {
 	}
     
     @IBAction func recordButtonPressed(_ sender: Any) {
-    
+		recorder.toggleRecording()
     }
 }
 

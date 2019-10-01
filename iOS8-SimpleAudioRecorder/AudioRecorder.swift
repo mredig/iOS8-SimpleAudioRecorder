@@ -8,16 +8,20 @@
 
 import AVFoundation
 
+protocol AudioRecorderDelegate: AnyObject {
+	func recorderDidChangeState(_ recorder: AudioRecorder)
+	func recorderDidFinishSavingFile(_ recorder: AudioRecorder)
+}
+
 class AudioRecorder: NSObject {
 
-	private var audioRecorder: AVAudioRecorder
+	private var audioRecorder: AVAudioRecorder?
 	var isRecording: Bool {
-		audioRecorder.isRecording
+		audioRecorder?.isRecording ?? false
 	}
+	weak var delegate: AudioRecorderDelegate?
 
 	override init() {
-		audioRecorder = AVAudioRecorder()
-
 		super.init()
 	}
 
@@ -30,11 +34,24 @@ class AudioRecorder: NSObject {
 		let format = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)! // fix force unwrap
 
 		audioRecorder = try! AVAudioRecorder(url: file, format: format) // fix force try
-		audioRecorder.record()
+		audioRecorder?.record()
+		notifyDelegate()
 	}
 
 	func stop() {
-		audioRecorder.stop() // save to disk
+		audioRecorder?.stop() // save to disk
+		notifyDelegate()
 	}
 
+	func toggleRecording() {
+		if isRecording {
+			stop()
+		} else {
+			record()
+		}
+	}
+
+	private func notifyDelegate() {
+		delegate?.recorderDidChangeState(self)
+	}
 }
