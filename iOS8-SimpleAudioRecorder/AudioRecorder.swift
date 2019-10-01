@@ -10,7 +10,7 @@ import AVFoundation
 
 protocol AudioRecorderDelegate: AnyObject {
 	func recorderDidChangeState(_ recorder: AudioRecorder)
-	func recorderDidFinishSavingFile(_ recorder: AudioRecorder)
+	func recorderDidFinishSavingFile(_ recorder: AudioRecorder, url: URL)
 }
 
 class AudioRecorder: NSObject {
@@ -34,6 +34,7 @@ class AudioRecorder: NSObject {
 		let format = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)! // fix force unwrap
 
 		audioRecorder = try! AVAudioRecorder(url: file, format: format) // fix force try
+		audioRecorder?.delegate = self
 		audioRecorder?.record()
 		notifyDelegate()
 	}
@@ -54,4 +55,17 @@ class AudioRecorder: NSObject {
 	private func notifyDelegate() {
 		delegate?.recorderDidChangeState(self)
 	}
+}
+
+extension AudioRecorder: AVAudioRecorderDelegate {
+
+    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        if let error = error {
+            print("audioRecorderEncodeErrorDidOccur: \(error)")
+        }
+    }
+
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+		delegate?.recorderDidFinishSavingFile(self, url: recorder.url)
+    }
 }

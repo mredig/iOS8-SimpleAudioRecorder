@@ -80,13 +80,14 @@ extension AudioRecorderController: AudioPlayerDelegate {
 }
 
 extension AudioRecorderController: AudioRecorderDelegate {
+
 	func recorderDidChangeState(_ recorder: AudioRecorder) {
 		updateViews()
 	}
 
-	func recorderDidFinishSavingFile(_ recorder: AudioRecorder) {
-		//
+	func recorderDidFinishSavingFile(_ recorder: AudioRecorder, url: URL) {
+		guard !recorder.isRecording else { return }
+		try? player.load(url: url)
+		updateViews()
 	}
-
-
 }
