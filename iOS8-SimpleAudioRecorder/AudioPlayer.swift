@@ -24,8 +24,21 @@ class AudioPlayer: NSObject {
 	var isPlaying: Bool {
 		audioPlayer.isPlaying
 	}
-
+	var elapsedTime: TimeInterval {
+		audioPlayer.currentTime
+	}
+	var duration: TimeInterval {
+		audioPlayer.duration
+	}
+	var timeRemaining: TimeInterval {
+		duration - elapsedTime
+	}
+//	/// 0.0 - 1.0
+//	var elapsedPercentage: Double {
+//		elapsedTime / duration
+//	}
 	weak var delegate: AudioPlayerDelegate?
+	var timer: Timer?
 
 	override init() {
 		audioPlayer = AVAudioPlayer()
@@ -36,19 +49,34 @@ class AudioPlayer: NSObject {
 
 	func load(url: URL) throws {
 		audioPlayer = try AVAudioPlayer(contentsOf: url)
+		audioPlayer.delegate = self
 	}
 
 	func play() {
 		audioPlayer.play()
+		startTimer()
 		notifyDelegate()
 	}
 
 	func pause() {
 		audioPlayer.pause()
+		stopTimer()
 		notifyDelegate()
 	}
 
-	func notifyDelegate() {
+	private func startTimer() {
+		stopTimer()
+		timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: { _ in
+			self.notifyDelegate()
+		})
+	}
+
+	private func stopTimer() {
+		timer?.invalidate()
+		timer = nil
+	}
+
+	private func notifyDelegate() {
 		delegate?.playerDidChangeState(self)
 	}
 

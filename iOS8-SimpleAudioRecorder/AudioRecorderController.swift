@@ -24,9 +24,18 @@ class AudioRecorderController: UIViewController {
 		return formatting
 	}()
 
+	let player = AudioPlayer()
+
+	private func updateViews() {
+		let title = player.isPlaying ? "Pause" : "Play"
+		playButton.setTitle(title, for: .normal)
+
+		timeLabel.text = timeFormatter.string(from: player.elapsedTime)
+		timeRemainingLabel.text = timeFormatter.string(from: player.timeRemaining)
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
 
         timeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: timeLabel.font.pointSize,
                                                           weight: .regular)
@@ -34,10 +43,13 @@ class AudioRecorderController: UIViewController {
                                                                    weight: .regular)
 
 		let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+
+		player.delegate = self
 	}
 
 
     @IBAction func playButtonPressed(_ sender: Any) {
+		player.playPause()
 
 	}
     
@@ -46,3 +58,9 @@ class AudioRecorderController: UIViewController {
     }
 }
 
+extension AudioRecorderController: AudioPlayerDelegate {
+	func playerDidChangeState(_ player: AudioPlayer) {
+		// update views
+		updateViews()
+	}
+}
