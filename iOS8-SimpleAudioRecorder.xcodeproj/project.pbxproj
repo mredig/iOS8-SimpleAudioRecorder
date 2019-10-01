@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		331B6F582343B38C0001C520 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B6F572343B38C0001C520 /* AppDelegate.swift */; };
 		331B6F5A2343B38C0001C520 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B6F592343B38C0001C520 /* SceneDelegate.swift */; };
-		331B6F5C2343B38C0001C520 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B6F5B2343B38C0001C520 /* ViewController.swift */; };
 		331B6F5F2343B38C0001C520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331B6F5D2343B38C0001C520 /* Main.storyboard */; };
 		331B6F612343B38D0001C520 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 331B6F602343B38D0001C520 /* Assets.xcassets */; };
 		331B6F642343B38D0001C520 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331B6F622343B38D0001C520 /* LaunchScreen.storyboard */; };
+		331B6F6C2343B48A0001C520 /* AudioRecorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B6F6B2343B48A0001C520 /* AudioRecorderController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		331B6F542343B38C0001C520 /* iOS8-SimpleAudioRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS8-SimpleAudioRecorder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		331B6F572343B38C0001C520 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		331B6F592343B38C0001C520 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		331B6F5B2343B38C0001C520 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		331B6F5E2343B38C0001C520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		331B6F602343B38D0001C520 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		331B6F632343B38D0001C520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		331B6F652343B38D0001C520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		331B6F6B2343B48A0001C520 /* AudioRecorderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorderController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				331B6F572343B38C0001C520 /* AppDelegate.swift */,
+				331B6F6B2343B48A0001C520 /* AudioRecorderController.swift */,
 				331B6F592343B38C0001C520 /* SceneDelegate.swift */,
-				331B6F5B2343B38C0001C520 /* ViewController.swift */,
 				331B6F5D2343B38C0001C520 /* Main.storyboard */,
 				331B6F602343B38D0001C520 /* Assets.xcassets */,
 				331B6F622343B38D0001C520 /* LaunchScreen.storyboard */,
@@ -138,7 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				331B6F5C2343B38C0001C520 /* ViewController.swift in Sources */,
+				331B6F6C2343B48A0001C520 /* AudioRecorderController.swift in Sources */,
 				331B6F582343B38C0001C520 /* AppDelegate.swift in Sources */,
 				331B6F5A2343B38C0001C520 /* SceneDelegate.swift in Sources */,
 			);
